@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "IG Saved Downloader",
+  "version": "2.1",
+  "description": "Download all saved Instagram posts and reels.",
+  "permissions": ["downloads"],
+  "host_permissions": [
+    "https://www.instagram.com/*",
+    "https://*.cdninstagram.com/*",
+    "https://*.fbcdn.net/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
